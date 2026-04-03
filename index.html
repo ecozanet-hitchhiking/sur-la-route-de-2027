@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sur la Route de 2027</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-eyebrow">Erwan & Thomas —</span>
+        <h1>Sur la Route <em>de 2027</em></h1>
+      </div>
+      <div class="header-meta">
+        <div class="stat"><span class="stat-num" id="nb-trajets">—</span><span class="stat-label">trajets</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" id="nb-interviews">—</span><span class="stat-label">rencontres</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" id="nb-km">—</span><span class="stat-label">km</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div id="map"></div>
+
+  <!-- Popup interview -->
+  <div id="interview-panel" class="panel hidden">
+    <button class="panel-close" id="panel-close">✕</button>
+    <div class="panel-inner">
+      <div class="panel-meta">
+        <span class="panel-date" id="panel-date"></span>
+        <span class="panel-location" id="panel-location"></span>
+      </div>
+      <h2 class="panel-name" id="panel-name"></h2>
+      <p class="panel-metier" id="panel-metier"></p>
+      <div class="panel-video" id="panel-video"></div>
+      <p class="panel-quote" id="panel-quote"></p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-line"></span> Trajet</div>
+    <div class="legend-item"><span class="legend-dot"></span> Interview</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

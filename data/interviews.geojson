@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [0.9800, 47.9000] },
+      "properties": {
+        "nom": "Michel",
+        "age": 54,
+        "metier": "Chauffeur routier",
+        "lieu": "Vendôme",
+        "date": "2026-03-15",
+        "youtube_id": null,
+        "quote": "La France, elle ressemble de plus en plus à une voiture sans conducteur. Tout le monde croit que quelqu'un d'autre tient le volant."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-1.1500, 46.9000] },
+      "properties": {
+        "nom": "Fatima",
+        "age": 38,
+        "metier": "Infirmière libérale",
+        "lieu": "La Roche-sur-Yon",
+        "date": "2026-04-02",
+        "youtube_id": null,
+        "quote": "Ma fierté ? Mes patients qui guérissent. Ce qui me pèse ? Qu'on nous demande de soigner de plus en plus de gens avec de moins en moins de moyens."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.3300, 47.3200] },
+      "properties": {
+        "nom": "Bernard",
+        "age": 67,
+        "metier": "Agriculteur retraité",
+        "lieu": "Beaune",
+        "date": "2026-04-20",
+        "youtube_id": null,
+        "quote": "J'ai travaillé cette terre pendant 40 ans. Mon fils, lui, il est parti à Lyon. Je comprends, mais ça fait quelque chose quand même."
+      }
+    }
+  ]
+}

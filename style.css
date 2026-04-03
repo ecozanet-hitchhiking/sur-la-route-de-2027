@@ -1,0 +1,325 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --noir: #0f0f0f;
+  --blanc: #f5f2ed;
+  --accent: #c9382a;
+  --gris: #888;
+  --trajet: #c9382a;
+  --trajet-opacity: 0.75;
+  --panel-w: 380px;
+  --header-h: 64px;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--noir);
+  color: var(--blanc);
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--noir);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  display: block;
+  margin-bottom: 2px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blanc);
+  line-height: 1;
+}
+
+h1 em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blanc);
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ── MAP ── */
+#map {
+  position: fixed;
+  top: var(--header-h);
+  left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+/* Leaflet dark override */
+.leaflet-tile {
+  filter: brightness(0.85) saturate(0.7) contrast(1.05);
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--noir) !important;
+  color: var(--blanc) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  font-size: 16px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #222 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(15,15,15,0.7) !important;
+  color: #555 !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a { color: #666 !important; }
+
+/* ── PULSE MARKER ── */
+.pulse-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--blanc);
+  box-shadow: 0 0 0 0 rgba(201, 56, 42, 0.6);
+  animation: pulse 2.4s ease-out infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201,56,42,0.6); }
+  60%  { box-shadow: 0 0 0 12px rgba(201,56,42,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,56,42,0); }
+}
+
+/* ── SIDE PANEL ── */
+.panel {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  width: var(--panel-w);
+  height: calc(100vh - var(--header-h));
+  background: var(--noir);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  z-index: 900;
+  overflow-y: auto;
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.panel.hidden {
+  transform: translateX(var(--panel-w));
+}
+
+.panel-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--gris);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+
+.panel-close:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--blanc);
+}
+
+.panel-inner {
+  padding: 32px 28px 40px;
+}
+
+.panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.panel-date {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.panel-location {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.panel-location::before {
+  content: "● ";
+  font-size: 8px;
+}
+
+.panel-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blanc);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.panel-metier {
+  font-size: 13px;
+  color: var(--gris);
+  font-weight: 300;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.panel-video {
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.panel-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.panel-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
+.panel-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(245,242,237,0.6);
+  line-height: 1.7;
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+}
+
+/* ── LEGEND ── */
+.legend {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(15,15,15,0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 500;
+  backdrop-filter: blur(8px);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--gris);
+}
+
+.legend-line {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--blanc);
+}
+
+/* ── SCROLLBAR ── */
+.panel::-webkit-scrollbar { width: 4px; }
+.panel::-webkit-scrollbar-track { background: transparent; }
+.panel::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  :root { --panel-w: 100vw; }
+  .header-meta { display: none; }
+  h1 { font-size: 16px; }
+}
