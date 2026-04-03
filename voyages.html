@@ -22,6 +22,11 @@
         <a href="index.html" class="nav-link">La Route de 2027</a>
         <a href="voyages.html" class="nav-link active">Nos Voyages</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">≡</button>
+      <div class="mobile-menu hidden" id="mobile-menu">
+        <a href="index.html" class="mobile-nav-link">La Route de 2027</a>
+        <a href="voyages.html" class="mobile-nav-link active">Nos Voyages</a>
+      </div>
     </div>
   </header>
 
@@ -46,5 +51,10 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="voyages.js"></script>
+  <script>
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
 </body>
 </html>
