@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Voyages — Sur la Route de 2027</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="voyages.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-eyebrow">Erwan & Thomas —</span>
+        <h1>Sur la Route <em>de 2027</em></h1>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">La Route de 2027</a>
+        <a href="voyages.html" class="nav-link active">Nos Voyages</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="voyages-layout">
+
+    <aside class="voyages-sidebar">
+      <div class="sidebar-header">
+        <h2>Nos voyages <em>passés</em></h2>
+        <p class="sidebar-sub">4 ans de stop à travers l'Europe et les États-Unis</p>
+      </div>
+      <div class="voyage-cards" id="voyage-cards"></div>
+      <div class="global-stats">
+        <div class="gstat"><span class="gstat-num" id="total-km">—</span><span class="gstat-label">km au total</span></div>
+        <div class="gstat"><span class="gstat-num" id="total-jours">—</span><span class="gstat-label">jours sur la route</span></div>
+        <div class="gstat"><span class="gstat-num" id="total-conducteurs">—</span><span class="gstat-label">conducteurs</span></div>
+      </div>
+    </aside>
+
+    <div id="map-voyages"></div>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="voyages.js"></script>
+</body>
+</html>
